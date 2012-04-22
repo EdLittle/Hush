@@ -51,10 +51,7 @@ public class CameraFeed extends Panel{
             player.start();
         }
         catch(Exception e){
-<<<<<<< HEAD
-            
-=======
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
             e.printStackTrace();
         }
     }

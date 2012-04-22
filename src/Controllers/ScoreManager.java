@@ -4,12 +4,10 @@
  */
 package Controllers;
 
-<<<<<<< HEAD
+
 import GUI.Hush;
 import GUI.PlayPanel;
 import java.awt.image.ImageObserver;
-=======
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
 import java.io.File;
 import java.io.IOException;
 import javax.swing.ImageIcon;
@@ -21,8 +19,9 @@ import javax.swing.JLabel;
  */
 public class ScoreManager {
     private static int score = 0;
+    private static int netScore = 0;
     private static JLabel[] starSlots;
-<<<<<<< HEAD
+
     //private static PlayPanel playPanel = Hush.hush.getPlayPanel();
     //private static ImageIcon coloredBadge = new ImageIcon("/med/badge-colored.png");
             
@@ -30,13 +29,7 @@ public class ScoreManager {
         
         giveStar(score);
         score++;
-=======
-    //private static ImageIcon coloredBadge = new ImageIcon("/med/badge-colored.png");
-            
-    public static void addScore() throws IOException{
-        score++;
-        giveStar(score);
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+        System.out.println("Score is " + score);
     }
     
     public static int getScore(){
@@ -47,15 +40,20 @@ public class ScoreManager {
     //call databaseManager
     }
 
-<<<<<<< HEAD
+
     private static void giveStar(int slot) throws IOException{
         //JLabel label = playPanel.getJLabel(slot);
         starSlots[slot].setIcon(new ImageIcon("src/med/badge-colored.png"));
         //label.setIcon(new ImageIcon("src/med/badge-colored.png"));
-=======
-    public static void giveStar(int slot) throws IOException{
-        starSlots[slot].setIcon(new ImageIcon("src/med/badge-colored.png"));
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+    }
+    
+    public static void revokeStars(){
+        int i = 0;
+        netScore = netScore + score;
+        score = 0;
+        for(i = 0; i < 7; i++){
+            starSlots[i].setIcon(new ImageIcon("src/med/badge.png"));
+        }
     }
     
     public static void resetScore(){

@@ -97,13 +97,11 @@ public class Hush extends javax.swing.JFrame {
         return playPanel.getGamePanel();
     }
     
-<<<<<<< HEAD
     
     public PlayPanel getPlayPanel(){
         return playPanel;
     }
-=======
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
     /**
      * @param args the command line arguments
      */

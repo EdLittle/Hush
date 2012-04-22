@@ -13,10 +13,8 @@ package GUI;
 import Controllers.ScoreManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
 import javax.swing.JLabel;
-=======
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
 
 /**
  *
@@ -33,7 +31,7 @@ public class PlayPanel extends javax.swing.JPanel {
     public DecoyPlay getGamePanel(){
         return decoyPlay1;
     }
-<<<<<<< HEAD
+
     
     /*public JLabel getJLabel(int slot){
         JLabel label;
@@ -67,8 +65,7 @@ public class PlayPanel extends javax.swing.JPanel {
     }
     * 
     */
-=======
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -128,11 +125,8 @@ public class PlayPanel extends javax.swing.JPanel {
 
         jPanel2.setMinimumSize(new java.awt.Dimension(500, 75));
         jPanel2.setPreferredSize(new java.awt.Dimension(500, 75));
-<<<<<<< HEAD
         jPanel2.setLayout(new java.awt.GridLayout(1, 7));
-=======
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/med/badge.png"))); // NOI18N

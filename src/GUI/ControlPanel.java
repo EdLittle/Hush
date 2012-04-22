@@ -26,11 +26,8 @@ import java.util.logging.Logger;
 public class ControlPanel extends javax.swing.JPanel {
     private Hush hush;
     private CardLayout cardLayout;
-<<<<<<< HEAD
-    
-=======
     private int test = 0;
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
     /** Creates new form ControlPanel */
     public ControlPanel() {
         initComponents();        
@@ -121,17 +118,7 @@ private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-<<<<<<< HEAD
-        
-=======
-        try {
-            // TODO add your handling code here:
-            ScoreManager.giveStar(test);
-        } catch (IOException ex) {
-            Logger.getLogger(ControlPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        test++;
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
     }//GEN-LAST:event_jLabel2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

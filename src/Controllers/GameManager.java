@@ -31,13 +31,8 @@ public class GameManager {
     private JLabel stopLight2;
     private JLabel displayLabel;
     private ScheduledExecutorService executor;
-<<<<<<< HEAD
     //private String colors[] = {"black", "blue", "green", "orange", "yellow", "red", "white"};
     private String colors[] = {"black", "black", "black", "black", "black", "black", "black"};
-=======
-    private String colors[] = {"black", "blue", "green", "orange", "yellow", "red", "white"};
-    //private String colors[] = {"black", "black", "black", "black", "black", "black", "black"};
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
     private String randomColors[] = {"", "", "", "", "" , "", ""};
     private boolean running;
     private int round;
@@ -80,11 +75,7 @@ public class GameManager {
             long twoSecondsLater = startTime + 2000;
             long threeSecondsLater = startTime + 3000;
             */
-<<<<<<< HEAD
             
-=======
-            round++;
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
             executor.schedule(new Runnable(){
 
                 @Override
@@ -120,17 +111,14 @@ public class GameManager {
             if(level == 0){
                 executor.schedule(new Runnable(){
                     public void run(){
-<<<<<<< HEAD
+
                         displayLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/med/" + randomColors[round] + ".png")));
                         System.out.println("Asking for " + randomColors[round]);
                     }
                 }, 5, TimeUnit.SECONDS);
-=======
-                        displayLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/med/" + randomColors[round-1] + ".png")));
-                        System.out.println("Asking for " + randomColors[round-1]);
-                    }
-                }, 4, TimeUnit.SECONDS);
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
+                        
+
             }
             else if(level == 1){
                 executor.schedule(new Runnable(){
@@ -138,14 +126,12 @@ public class GameManager {
                         displayLabel.setIcon(null);
                         displayLabel.setText("Circle");
                     }
-<<<<<<< HEAD
                 }, 5, TimeUnit.SECONDS);
-=======
-                }, 4, TimeUnit.SECONDS);
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
             }
             
             if(level == 0){
+                
                 gameTask = executor.scheduleAtFixedRate(new Runnable(){
                     int tries = 1;
                     int random;
@@ -155,53 +141,32 @@ public class GameManager {
                             
                             BufferedImage image = camera.grabImage();
                             String detectedColor = bandsAnalyzer.analyzeImage(image);
-<<<<<<< HEAD
-                            System.out.println("The shit detected" + detectedColor + " " + tries);
+                            System.out.println("The shit detected" + detectedColor + " " + round);
                             
                             boolean correct = detectedColor.equals(randomColors[round]);
                             
 
                             if((correct) || (tries == NUMBER_OF_TRIES)){
-                                getFuture().cancel(true);
-                                                                
-                                if(correct)
+                                cancelFuture();
+                                
+                                if(correct){
                                     ScoreManager.addScore();
-
-                                if(round < 6){
-                                    round++;
+                                }
+                                
+                                startGame();
+                                /*
+                                if(round < 6){                                    
                                     startGame();
                                 }
                                 else if (round == 6){
-=======
-                            System.out.println("The shit detected" + detectedColor);
-                            boolean correct = detectedColor.equals(randomColors[round-1]);
-                            if(correct)
-                                System.out.println("Correct!");
 
-                            if((correct) || (tries == NUMBER_OF_TRIES)){
-                                getFuture().cancel(true);
-
-
-                                if(round < 7){
-                                //System.out.println("Grab image here and analise" + round);
-                                //BufferedImage image = camera.grabImage();
-                                //JFrame frame = new JFrame();
-                                //ImagePanel panel = new ImagePanel();
-                                //panel.setImage(image);
-                                //frame.add(panel);
-                                //frame.setSize(450, 450);
-                                //frame.setVisible(true);
-                                //round++;
-                                //System.out.println("Exo");
-                                startGame();
-                                }
-                                else if (round == 7){
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
                                     System.out.println("Next level please!");
                                     round = 0;
                                     level++;
                                     startGame();
                                 }
+                                * 
+                                */
                                 //roundFinished = true;
                             }
                             else{
@@ -211,11 +176,9 @@ public class GameManager {
                             Logger.getLogger(GameManager.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-<<<<<<< HEAD
+
                 }, 6, 1, TimeUnit.SECONDS);
-=======
-                }, 5, 1, TimeUnit.SECONDS);
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
             }
             
             
@@ -266,11 +229,9 @@ public class GameManager {
                             Logger.getLogger(GameManager.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-<<<<<<< HEAD
+
                 }, 6, 1, TimeUnit.SECONDS);
-=======
-                }, 5, 1, TimeUnit.SECONDS);
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
             }
             /*while(!roundFinished){
                 //System.out.println("Boom");
@@ -289,6 +250,19 @@ public class GameManager {
     
     private Future<?> getFuture(){
         return gameTask;
+    }
+    
+    private void cancelFuture(){
+        
+        getFuture().cancel(true);
+        round++;
+        if(round == 7){
+            ScoreManager.revokeStars();
+            round = 0;
+            level++;
+        }
+        
+        
     }
     
     private void colorRound() throws InterruptedException{
@@ -315,11 +289,8 @@ public class GameManager {
     
     private void setRandomColors(){
         Vector randomPermutation = getRandomPermutation();
-<<<<<<< HEAD
         Integer[] order = {10, 10, 10, 10, 10, 10, 10};
-=======
-        Integer[] order = {10,10,10,10,10,10,10};
->>>>>>> eee3728485b9f5008a5d065726f45464bc93057f
+
         
         order = (Integer[])randomPermutation.toArray(new Integer[0]);
         for (int i = 0; i < 7; i++){
