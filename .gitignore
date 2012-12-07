@@ -6,3 +6,4 @@ doc/
 *~
 .project
 .DS_Store
+/dist/

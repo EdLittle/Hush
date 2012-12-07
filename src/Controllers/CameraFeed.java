@@ -40,7 +40,8 @@ public class CameraFeed extends Panel{
         
         setLayout(new BorderLayout());
         setSize(320, 550);
-        String str = "vfw:Microsoft WDM Image Capture (Win32):0";
+        //String str = "vfw:Microsoft WDM Image Capture (Win32):0";
+        String str = "vfw:0";
         di = CaptureDeviceManager.getDevice(str);
         ml = new MediaLocator(str);
         executor = Executors.newScheduledThreadPool(5);
@@ -90,6 +91,4 @@ public class CameraFeed extends Panel{
         BufferedImage bf = (BufferedImage)img;
         return bf;
     }
-    
-    
 }
